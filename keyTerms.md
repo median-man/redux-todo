@@ -30,6 +30,9 @@ is no dispatcher&mdash;pure functions are used instead. With Redux, data is neve
 [Immutable][immutable] is a JavaScript library that may be used with Redux. Immutable provides an API for
 manipulating data structures without mutation.
 
+**Action Creator**:  
+Function which returns an action.
+
 [redux-3]: https://redux.js.org/introduction/threeprinciples
 [flux]: https://facebook.github.io/flux/docs/in-depth-overview.html#content
 [immutable]: https://facebook.github.io/immutable-js/
