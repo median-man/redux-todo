@@ -6,7 +6,8 @@ with Redux.
 A plain JavaScript object describing what happened&mdash;e.g. `{ type: 'ADD', text: 'Red Windsor' }`.
 
 **Reducer**:  
-A function which returns the next state given state and an action.
+A function which returns the next state given state and an action. Reducers specify how the state
+changes in response to an action sent the store.
 
 ```javascript
 function cheeses(state = [], action) {
@@ -16,6 +17,10 @@ function cheeses(state = [], action) {
   return state;
 }
 ```
+
+**Pure Function**:  
+A function which, given the same input, will always return the same output and produces no
+side effects. *Reducers should always be pure functions.*
 
 **Three principles**:  
 Redux may be described with three principles: "single source of truth", read-only state, and change
