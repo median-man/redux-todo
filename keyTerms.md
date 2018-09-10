@@ -32,12 +32,24 @@ Flux is an architecture for the flow of data in client-side web apps used by Fac
 is no dispatcher&mdash;pure functions are used instead. With Redux, data is never mutated.
 
 **Immutable**:  
+Every level of nesting must be copied in an update because arrays and objects are assigned by
+reference in JavaScript. In my opinion, keeping the data for state in shallow structures is key to
+avoiding bugs. Normalize!
+
+[Immutable Update Patterns][redux-update-patters] on redux.js.org goes into greater detail on the
+subject of avoiding mutations and offers some recipes.
+
 [Immutable][immutable] is a JavaScript library that may be used with Redux. Immutable provides an API for
 manipulating data structures without mutation.
 
 **Action Creator**:  
 Function which returns an action.
 
+**Store**:  
+The object which is created by passing a reducer to createStore(). Methods include getState(),
+dispatch(), and subscribe().
+
 [redux-3]: https://redux.js.org/introduction/threeprinciples
+[redux-update-patterns]: https://redux.js.org/recipes/structuringreducers/immutableupdatepatterns
 [flux]: https://facebook.github.io/flux/docs/in-depth-overview.html#content
 [immutable]: https://facebook.github.io/immutable-js/
