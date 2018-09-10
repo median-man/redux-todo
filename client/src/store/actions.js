@@ -22,3 +22,5 @@ export function setVisibilityFilter(filter) {
   if (isInvalidFilter) throw new Error('Invalid visibility filter');
   return { type: SET_VISIBILITY_FILTER, filter };
 }
+
+export function resetApp() {}

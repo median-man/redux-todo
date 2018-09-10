@@ -1,4 +1,5 @@
 import {
+  resetApp,
   addTodo,
   toggleTodo,
   setVisibilityFilter,
@@ -7,6 +8,10 @@ import {
 } from './actions';
 
 describe('action creators', () => {
+  test('resetApp() should return undefined', () => {
+    expect(resetApp()).toBeUndefined();
+  });
+
   test('addTodo() should return an action to add a todo', () => {
     const text = 'Port Salut cheese';
     const type = actionTypes.ADD_TODO;
