@@ -12,16 +12,25 @@ const addTodo = (state, { text }) => {
     completed: false,
     text,
   };
-  const todos = [...state.todos, newTodo];
-  return Object.assign({}, state, { todos });
+  return [...state, newTodo];
 };
 
 const toggleTodo = (state, { index }) => {
-  const targetTodo = state.todos[index];
+  const targetTodo = state[index];
   const completed = !targetTodo.completed;
   const toggledTodo = Object.assign({}, targetTodo, { completed });
-  const todos = state.todos.map((todo, i) => i === index ? toggledTodo : todo);
-  return Object.assign({}, state, { todos });
+  return state.map((todo, i) => i === index ? toggledTodo : todo);
+};
+
+const todos = (state, action) => {
+  const { todos } = state;
+  const nextState = (todos) => Object.assign({}, state, { todos });
+  if (action.type === ADD_TODO) {
+    return nextState(addTodo(todos, action));
+  }
+  if (action.type === TOGGLE_TODO) {
+    return nextState(toggleTodo(todos, action));
+  }
 };
 
 const setVisFilter = (state, action) => {
@@ -32,9 +41,9 @@ const setVisFilter = (state, action) => {
   );
 };
 
-const handlers = {
-  [ADD_TODO]: addTodo,
-  [TOGGLE_TODO]: toggleTodo,
+const todoAppHandlers = {
+  [ADD_TODO]: todos,
+  [TOGGLE_TODO]: todos,
   [SET_VISIBILITY_FILTER]: setVisFilter,
 };
 
@@ -44,6 +53,6 @@ const initialState = {
 };
 
 export function todoApp(state = initialState, action = {}) {
-  const handler = handlers[action.type];
+  const handler = todoAppHandlers[action.type];
   return handler ? handler(state, action) : state;
 }
