@@ -1,4 +1,4 @@
-import { todoApp } from './reducers';
+import todoApp from './reducers';
 
 describe('reducers', () => {
   describe('todoApp()', () => {
@@ -12,8 +12,8 @@ describe('reducers', () => {
     });
 
     test('should return state unchanged when it is defined', () => {
-      const state = { cheese: 'Emmental' };
-      expect(todoApp(state)).toBe(state);
+      const state = { todos: ['sample Emmental'], visibilityFilter: 'cheeses' };
+      expect(todoApp(state)).toEqual(state);
     });
 
     test('should change state.visibilityFilter when the action is SET_VISIBILITY_FILTER', () => {

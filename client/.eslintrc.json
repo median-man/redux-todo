@@ -1,5 +1,5 @@
 {
-  "extends": "react-app",
+  "extends": ["react-app", "eslint:recommended"],
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
     "eol-last": "error",
