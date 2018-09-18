@@ -36,7 +36,7 @@ Every level of nesting must be copied in an update because arrays and objects ar
 reference in JavaScript. In my opinion, keeping the data for state in shallow structures is key to
 avoiding bugs. Normalize!
 
-[Immutable Update Patterns][redux-update-patters] on redux.js.org goes into greater detail on the
+[Immutable Update Patterns][redux-update-patterns] on redux.js.org goes into greater detail on the
 subject of avoiding mutations and offers some recipes.
 
 [Immutable][immutable] is a JavaScript library that may be used with Redux. Immutable provides an API for
